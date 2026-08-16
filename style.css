@@ -541,6 +541,45 @@ button {
       0 16px 18px
       rgba(0, 0, 0, 0.18)
     );
+   
+   animation:
+    float 6s ease-in-out infinite;
+}
+
+/* =========================
+   FLOATING ISLAND
+========================= */
+
+@keyframes float {
+
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+
+}
+
+.realm-1 img {
+  animation-delay: 0s;
+}
+
+.realm-2 img {
+  animation-delay: 1.5s;
+}
+
+.realm-3 img {
+  animation-delay: 3s;
+}
+
+.realm-4 img {
+  animation-delay: 4.5s;
 }
 
 /* =========================
