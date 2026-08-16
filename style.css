@@ -168,43 +168,6 @@ button {
 }
 
 
-/* Landscape */
-
-.landscape {
-  position: absolute;
-
-  inset: 44% 0 0;
-
-  background:
-    linear-gradient(
-      165deg,
-      transparent 35%,
-      #7dab9b 36% 60%,
-      #6d879f 61%
-    );
-}
-
-.castle {
-  position: absolute;
-
-  right: 55px;
-
-  top: 25px;
-
-  font-size: 68px;
-}
-
-.traveler {
-  position: absolute;
-
-  left: 42px;
-
-  bottom: 35px;
-
-  font-size: 63px;
-}
-
-
 /* =========================
    HOME PANEL
 ========================= */
