@@ -52,12 +52,13 @@ button {
 
     overflow: hidden;
 
-    background: linear-gradient(
-        180deg,
-        #138bea,
-        #62bce9 56%,
-        #c9e7ed
-    );
+    background-image: url("assets/home-background.png");
+
+    background-size: cover;
+
+    background-position: center bottom;
+
+    background-repeat: no-repeat;
 }
 
 .landscape {
