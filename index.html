@@ -46,31 +46,115 @@
     </section>
 
     <section class="screen" id="mapScreen">
-      <div class="mapPage">
+
+    <div class="mapPage">
+
+        <img
+            class="map-background"
+            src="assets/map/background.webp"
+            alt="Map Background"
+        >
+
         <header class="mapHeader">
-          <button class="back" data-go="homeScreen">←</button>
-          <div><h2>Ascending Realms</h2><p>Each realm is a chapter.<br>Courage opens the path.</p></div>
-          <span class="heart">❤️ 5</span>
+
+            <button
+                class="back"
+                data-go="homeScreen"
+            >
+                ←
+            </button>
+
+            <div>
+
+                <h2>Ascending Realms</h2>
+
+                <p>
+                    Each realm is a chapter.
+                    <br>
+                    Courage opens the path.
+                </p>
+
+            </div>
+
+            <span class="heart">
+                ❤️ 5
+            </span>
+
         </header>
 
         <div class="realms">
-          <div class="realm locked right"><div class="island">🏰</div><div><span>4</span><b>Crystal Spire</b><small>🔒 Locked</small></div></div>
-          <div class="trail"></div>
-          <div class="realm locked left"><div class="island">🌲🌳</div><div><span>3</span><b>Whispering Woods</b><small>🔒 Locked</small></div></div>
-          <div class="trail"></div>
-          <div class="realm locked right"><div class="island">🌊🗼</div><div><span>2</span><b>Echoing Shores</b><small>🔒 Locked</small></div></div>
-          <div class="trail"></div>
-          <button class="realm open left" data-go="itemScreen"><div class="island">🌾🏡</div><div><span>1</span><b>Dawn Fields</b><small>✅ Days 1–10</small></div></button>
-        </div>
-      </div>
 
-      <nav class="nav">
-        <button data-go="homeScreen">⌂<small>Home</small></button>
-        <button class="active" data-go="mapScreen">🗺<small>Map</small></button>
-        <button data-go="itemScreen">💼<small>Journey</small></button>
-        <button>♙<small>Avatar</small></button>
-      </nav>
-    </section>
+            <div class="realm realm-4">
+
+                <img
+                    src="assets/map/crystal-spire.webp"
+                    alt="Crystal Spire"
+                >
+
+            </div>
+
+            <div class="realm realm-3">
+
+                <img
+                    src="assets/map/whispering-woods.webp"
+                    alt="Whispering Woods"
+                >
+
+            </div>
+
+            <div class="realm realm-2">
+
+                <img
+                    src="assets/map/echoing-shores.webp"
+                    alt="Echoing Shores"
+                >
+
+            </div>
+
+            <button
+                class="realm realm-1"
+                data-go="itemScreen"
+            >
+
+                <img
+                    src="assets/map/dawn-fields.webp"
+                    alt="Dawn Fields"
+                >
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <nav class="nav">
+
+        <button data-go="homeScreen">
+            ⌂
+            <small>Home</small>
+        </button>
+
+        <button
+            class="active"
+            data-go="mapScreen"
+        >
+            🗺
+            <small>Map</small>
+        </button>
+
+        <button data-go="itemScreen">
+            💼
+            <small>Journey</small>
+        </button>
+
+        <button>
+            ♙
+            <small>Avatar</small>
+        </button>
+
+    </nav>
+
+</section>
 
     <section class="screen itemPage" id="itemScreen">
       <div class="itemTop"><button data-go="mapScreen">×</button><span>Day 1 &nbsp;•&nbsp; Item <b id="itemCount">1/2</b></span><button>♡</button></div>
