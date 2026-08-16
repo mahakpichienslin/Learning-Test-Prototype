@@ -464,191 +464,193 @@ button {
 }
 
 .mapPage {
+  position: relative;
   min-height: 100vh;
-
-  padding:
-    20px 18px 110px;
-
-  background:
-    linear-gradient(
-      180deg,
-      #4db5ef,
-      #c8ebf5 55%,
-      #f6efdf
-    );
+  overflow: hidden;
 }
 
+/* =========================
+   BACKGROUND
+========================= */
+
+.map-background {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+
+  z-index: 1;
+}
+
+/* =========================
+   HEADER
+========================= */
+
 .mapHeader {
+  position: relative;
+  z-index: 10;
+
   display: grid;
-
-  grid-template-columns:
-    46px 1fr auto;
-
+  grid-template-columns: 46px 1fr auto;
   gap: 10px;
+  align-items: start;
+
+  padding: 20px 18px;
 
   color: #ffffff;
-
-  align-items: start;
 }
 
 .back {
   width: 44px;
-
   height: 44px;
 
   border: 0;
-
   border-radius: 12px;
 
-  background: #ffffff;
-
+  background: rgba(255, 255, 255, 0.95);
   color: #342f45;
 
   font-size: 25px;
+  cursor: pointer;
 }
 
 .mapHeader h2 {
-  margin:
-    3px 0 7px;
+  margin: 3px 0 7px;
 }
 
 .mapHeader p {
   margin: 0;
-
   font-weight: 700;
+  line-height: 1.4;
 }
 
 .heart {
-  background: #ffffff;
-
+  background: rgba(255, 255, 255, 0.95);
   color: #483c58;
 
   padding: 11px;
-
   border-radius: 12px;
 
   font-weight: 900;
 }
 
-
-/* Realm */
+/* =========================
+   REALMS CONTAINER
+========================= */
 
 .realms {
-  margin-top: 18px;
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 5;
+
+  pointer-events: none;
 }
 
+/* =========================
+   REALM
+========================= */
+
 .realm {
-  width: 100%;
+  position: absolute;
 
   border: 0;
+  padding: 0;
 
   background: transparent;
 
-  display: grid;
-
-  grid-template-columns:
-    62% 38%;
-
-  align-items: center;
-
-  text-align: left;
-
-  color: #2d2442;
+  pointer-events: auto;
 }
 
-.realm.left {
-  grid-template-columns:
-    62% 38%;
-}
+.realm img {
+  width: 100%;
+  height: auto;
 
-.realm.right {
-  grid-template-columns:
-    38% 62%;
-}
-
-.realm.right .island {
-  order: 2;
-}
-
-
-/* Island */
-
-.island {
-  height: 140px;
-
-  border-radius: 50%;
-
-  background:
-    linear-gradient(
-      #83cd88,
-      #65a868
-    );
-
-  display: grid;
-
-  place-items: center;
-
-  font-size: 50px;
+  display: block;
 
   filter:
     drop-shadow(
-      0 14px 8px
-      rgba(56, 86, 96, 0.18)
+      0 16px 18px
+      rgba(0, 0, 0, 0.18)
     );
 }
 
-.realm span {
-  display: inline-grid;
+/* =========================
+   REALM POSITIONS
+========================= */
 
-  place-items: center;
+.realm-1 {
+  width: 190px;
 
-  min-width: 36px;
-
-  height: 36px;
-
-  background: #fff3d6;
-
-  border-radius: 10px;
-
-  font-weight: 900;
+  left: 25px;
+  bottom: 115px;
 }
 
-.realm b,
-.realm small {
-  display: block;
+.realm-2 {
+  width: 165px;
+
+  right: 18px;
+  bottom: 300px;
 }
 
-.realm b {
-  margin: 5px 0;
+.realm-3 {
+  width: 175px;
+
+  left: 18px;
+  bottom: 480px;
 }
 
-.realm.open span {
-  background: #55a845;
+.realm-4 {
+  width: 160px;
 
-  color: #ffffff;
+  right: 20px;
+  bottom: 655px;
 }
 
+/* =========================
+   LOCKED REALMS
+========================= */
 
-/* Trail */
-
-.trail {
-  height: 30px;
-
-  width: 64%;
-
-  margin:
-    -12px auto;
-
-  border-top:
-    5px dashed
-    rgba(255, 255, 255, 0.85);
-
-  border-radius: 50%;
-
-  transform:
-    rotate(-7deg);
+.realm-2,
+.realm-3,
+.realm-4 {
+  opacity: 0.65;
+  filter: grayscale(0.15);
 }
 
+/* =========================
+   OPEN REALM
+========================= */
+
+.realm-1 {
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    filter 0.2s ease;
+}
+
+.realm-1:hover {
+  transform: scale(1.04);
+}
+
+/* =========================
+   NAV
+========================= */
+
+#mapScreen .nav {
+  position: absolute;
+
+  left: 14px;
+  right: 14px;
+  bottom: 10px;
+
+  z-index: 30;
+}
 
 /* =========================
    ITEM LEARNING
