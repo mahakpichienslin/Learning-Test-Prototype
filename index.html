@@ -1,1 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>180 Day Prototype</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <section class="screen active" id="homeScreen">
+      <div class="homeHero">
+        <div class="topRow">
+          <div class="avatar">🧑🏻</div>
+          <div class="stats"><span>🔥 12</span><span>💎 180</span><button>⚙️</button></div>
+        </div>
+        <div class="heroText">
+          <small>180 Day</small>
+          <h1>Courage<br>to speak<br>is the <em>true</em><br>measure of<br>progress.</h1>
+        </div>
+        <div class="landscape">
+          <div class="castle">🏰</div>
+          <div class="traveler">🧍🏻‍♂️🎒</div>
+        </div>
+      </div>
 
+      <div class="homePanel">
+        <article class="journeyCard">
+          <p>Today’s Journey</p>
+          <div class="dayRow"><strong>Day 1</strong><span>1 / 180</span></div>
+          <div class="bar"><i></i></div>
+          <button class="primary" data-go="mapScreen"><span>🧭</span><b>Continue Journey<small>Go to Realm Map</small></b><span>›</span></button>
+        </article>
+
+        <button class="reviewCard" data-go="itemScreen">
+          <span class="cards">🃏</span>
+          <span><b>Items in Review</b><strong>2 items</strong><small>Ready to practice</small></span>
+          <span>›</span>
+        </button>
+      </div>
+
+      <nav class="nav">
+        <button class="active" data-go="homeScreen">⌂<small>Home</small></button>
+        <button data-go="mapScreen">🗺<small>Map</small></button>
+        <button data-go="itemScreen">💼<small>Journey</small></button>
+        <button>♙<small>Avatar</small></button>
+      </nav>
+    </section>
+
+    <section class="screen" id="mapScreen">
+      <div class="mapPage">
+        <header class="mapHeader">
+          <button class="back" data-go="homeScreen">←</button>
+          <div><h2>Ascending Realms</h2><p>Each realm is a chapter.<br>Courage opens the path.</p></div>
+          <span class="heart">❤️ 5</span>
+        </header>
+
+        <div class="realms">
+          <div class="realm locked right"><div class="island">🏰</div><div><span>4</span><b>Crystal Spire</b><small>🔒 Locked</small></div></div>
+          <div class="trail"></div>
+          <div class="realm locked left"><div class="island">🌲🌳</div><div><span>3</span><b>Whispering Woods</b><small>🔒 Locked</small></div></div>
+          <div class="trail"></div>
+          <div class="realm locked right"><div class="island">🌊🗼</div><div><span>2</span><b>Echoing Shores</b><small>🔒 Locked</small></div></div>
+          <div class="trail"></div>
+          <button class="realm open left" data-go="itemScreen"><div class="island">🌾🏡</div><div><span>1</span><b>Dawn Fields</b><small>✅ Days 1–10</small></div></button>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <button data-go="homeScreen">⌂<small>Home</small></button>
+        <button class="active" data-go="mapScreen">🗺<small>Map</small></button>
+        <button data-go="itemScreen">💼<small>Journey</small></button>
+        <button>♙<small>Avatar</small></button>
+      </nav>
+    </section>
+
+    <section class="screen itemPage" id="itemScreen">
+      <div class="itemTop"><button data-go="mapScreen">×</button><span>Day 1 &nbsp;•&nbsp; Item <b id="itemCount">1/2</b></span><button>♡</button></div>
+      <div class="stepLine" id="stepLine"><i class="on"></i><i></i><i></i><i></i><i></i></div>
+
+      <div class="lesson">
+        <p id="moment">Moment 1 of 5</p>
+        <h2 id="stageTitle">Scene</h2>
+        <p id="stageHelp">Look at the moment. Let the image stay with you.</p>
+        <div class="scene">
+          <div class="window"></div>
+          <div class="person" id="person">👋🧑🏻</div>
+          <div class="prop" id="prop">✨</div>
+        </div>
+        <button class="roundAction" id="actionBtn">▶</button>
+        <div class="sentence" id="sentence">My name is Tom.</div>
+        <small>🔊 EN</small>
+      </div>
+
+      <div class="stageDock">
+        <button class="stage active" data-stage="0"><span>▧</span><small>Scene</small></button>
+        <button class="stage" data-stage="1"><span>🎧</span><small>Feel</small></button>
+        <button class="stage" data-stage="2"><span>🎙</span><small>Echo</small></button>
+        <button class="stage" data-stage="3"><span>?</span><small>Unlock</small></button>
+        <button class="stage" data-stage="4"><span>✎</span><small>Express</small></button>
+      </div>
+
+      <div class="courage"><span>✨</span><p>No pressure. Just progress.<br><b>Courage comes first.</b></p></div>
+      <button class="continue" id="nextStepBtn">Continue</button>
+    </section>
+
+    <section class="screen checkpoint" id="checkpointScreen">
+      <div class="confetti">◆ ✦ ◆ ✨ ✦ ◆</div>
+      <h2>Checkpoint<br>Reached!</h2>
+      <p>Cycle 1 Preview</p>
+      <div class="gate">🚩<br><span>🪨</span><b>💎</b></div>
+
+      <article class="checkpointCard">
+        <p>You showed up.<br>You practiced.<br><b>That’s progress.</b></p>
+        <div class="heartDivider">♡</div>
+        <div class="summary">
+          <div><b>⭐</b><strong>2</strong><small>Items Learned</small></div>
+          <div><b>↻</b><strong>2</strong><small>Items Reviewed</small></div>
+          <div><b>💬</b><strong>2</strong><small>Sentences Created</small></div>
+        </div>
+        <button class="primary" data-go="homeScreen"><span></span><b>Continue Journey</b><span>›</span></button>
+        <button class="textBtn" data-go="mapScreen">Back to Realm Map</button>
+      </article>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
