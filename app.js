@@ -175,7 +175,7 @@ let currentStage = 0;
 const stageTitle = document.getElementById("stageTitle");
 const stageHelp = document.getElementById("stageHelp");
 const sentence = document.getElementById("sentence");
-const stepLabel = document.getElementById("stepLabel");
+const stepLabel = document.getElementById("moment");
 
 const itemCount = document.getElementById("itemCount");
 
