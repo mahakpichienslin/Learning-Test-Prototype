@@ -974,6 +974,101 @@ button {
 
 
 /* =========================
+   DIALOGUE
+========================= */
+
+.dialogueBox {
+  margin-top: 16px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 10px;
+}
+
+.dialogueLine {
+  display: grid;
+
+  grid-template-columns:
+    38px 1fr 44px;
+
+  align-items: center;
+
+  gap: 10px;
+
+  padding:
+    12px 14px;
+
+  border-radius: 16px;
+
+  background:
+    rgba(255, 255, 255, 0.12);
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.16);
+}
+
+.speaker {
+  width: 34px;
+  height: 34px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+
+  font-size: 13px;
+
+  font-weight: 900;
+
+  background: #ffffff;
+
+  color: #5531ad;
+}
+
+.speakerB {
+  background: #ffd426;
+
+  color: #3f2c77;
+}
+
+.dialogueText {
+  text-align: left;
+
+  font-size: 17px;
+
+  font-weight: 800;
+
+  line-height: 1.4;
+}
+
+.speakLineBtn {
+  width: 42px;
+  height: 42px;
+
+  border: 0;
+
+  border-radius: 50%;
+
+  background: #ffffff;
+
+  color: #5531ad;
+
+  cursor: pointer;
+
+  font-size: 18px;
+
+  box-shadow:
+    0 5px 12px
+    rgba(28, 16, 74, 0.2);
+}
+
+.speakLineBtn:active {
+  transform: scale(0.94);
+}
+
+/* =========================
    LEARNING STAGES
 ========================= */
 
