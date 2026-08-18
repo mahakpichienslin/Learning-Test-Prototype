@@ -174,7 +174,17 @@ let currentStage = 0;
 
 const stageTitle = document.getElementById("stageTitle");
 const stageHelp = document.getElementById("stageHelp");
-const sentence = document.getElementById("sentence");
+const questionText =
+  document.getElementById("questionText");
+
+const answerText =
+  document.getElementById("answerText");
+
+const playQuestionBtn =
+  document.getElementById("playQuestionBtn");
+
+const playAnswerBtn =
+  document.getElementById("playAnswerBtn");
 const stepLabel = document.getElementById("moment");
 
 const itemCount = document.getElementById("itemCount");
@@ -202,12 +212,23 @@ const progressDots = [
 // =========================
 
 function renderItem() {
+
   const item = items[currentItem];
 
-  itemCount.textContent = item.count;
+  itemCount.textContent =
+    `${currentItem + 1}/${items.length}`;
 
-  scenePerson.textContent = item.person;
-  sceneProp.textContent = item.prop;
+  scenePerson.textContent =
+    item.person;
+
+  sceneProp.textContent =
+    item.prop;
+
+  questionText.textContent =
+    item.question;
+
+  answerText.textContent =
+    item.answer;
 
   renderStage();
 }
@@ -233,24 +254,96 @@ function renderStage() {
   // TEXT BEHAVIOUR
   // =========================
 
-  if (currentStage === 3) {
+  if (currentStage === 0) {
 
-    // Unlock
-    // ซ่อนข้อความทั้งหมด
+  questionText.textContent =
+    item.question;
 
-    sentence.textContent = "";
+  answerText.textContent =
+    item.answer;
 
-  } else if (currentStage === 4) {
+}
 
-    // Express
+else if (currentStage === 1) {
 
-    sentence.textContent = item.create;
+  questionText.textContent =
+    item.question;
 
-  } else {
+  answerText.textContent =
+    item.answer;
 
-    sentence.textContent = item.listen;
+}
+
+else if (currentStage === 2) {
+
+  questionText.textContent =
+    item.question;
+
+  answerText.textContent =
+    item.answer;
+
+}
+
+else if (currentStage === 3) {
+
+  questionText.textContent =
+    item.question;
+
+  answerText.textContent =
+    "__________";
+
+}
+
+else if (currentStage === 4) {
+
+  questionText.textContent =
+    item.production;
+
+  answerText.textContent =
+    "Say it your way.";
+
+}
+
+  function speakText(text) {
+
+  if (!("speechSynthesis" in window)) {
+    return;
+  }
+
+  window.speechSynthesis.cancel();
+
+  const speech =
+    new SpeechSynthesisUtterance(text);
+
+  speech.lang = "en-US";
+
+  speech.rate = 0.85;
+
+  speech.pitch = 1;
+
+  window.speechSynthesis.speak(speech);
+}
+  playQuestionBtn.addEventListener(
+  "click",
+  () => {
+
+    const item = items[currentItem];
+
+    speakText(item.question);
 
   }
+);
+
+playAnswerBtn.addEventListener(
+  "click",
+  () => {
+
+    const item = items[currentItem];
+
+    speakText(item.answer);
+
+  }
+);
 
   // =========================
   // STAGE BUTTONS
@@ -395,34 +488,68 @@ function playListenPrototype() {
 
   const item = items[currentItem];
 
-  actionBtn.textContent = "🔊";
+  actionBtn.textContent =
+    "🔊";
 
-  // Browser text-to-speech prototype
-
-  if ("speechSynthesis" in window) {
-
-    window.speechSynthesis.cancel();
-
-    const speech =
-      new SpeechSynthesisUtterance(
-        item.listen
-      );
-
-    speech.lang = "en-US";
-
-    speech.rate = 0.85;
-
-    window.speechSynthesis.speak(speech);
-
-  }
+  speakDialogue(
+    item.question,
+    item.answer
+  );
 
   setTimeout(() => {
 
-    actionBtn.textContent = "▶ Play";
+    actionBtn.textContent =
+      "▶ Play";
 
-  }, 1200);
+  }, 2500);
 }
 
+function speakDialogue(
+  question,
+  answer
+) {
+
+  if (!("speechSynthesis" in window)) {
+    return;
+  }
+
+  window.speechSynthesis.cancel();
+
+  const speechA =
+    new SpeechSynthesisUtterance(
+      question
+    );
+
+  speechA.lang = "en-US";
+  speechA.rate = 0.85;
+
+
+  const speechB =
+    new SpeechSynthesisUtterance(
+      answer
+    );
+
+  speechB.lang = "en-US";
+  speechB.rate = 0.85;
+
+
+  speechA.onend = () => {
+
+    setTimeout(() => {
+
+      window.speechSynthesis.speak(
+        speechB
+      );
+
+    }, 400);
+
+  };
+
+
+  window.speechSynthesis.speak(
+    speechA
+  );
+}
 // =========================
 // ECHO
 // =========================
