@@ -63,41 +63,102 @@ const stages = [
 // =========================
 
 const items = [
+
   {
     id: "001",
-    count: "1/2",
 
-    concept: "Name",
+    day: "Waking Up",
 
-    listen: "My name is Tom.",
+    scene: "Morning Greeting",
 
-    create: "My name is ______.",
+    question: "Good morning.",
+
+    answer: "Good morning.",
 
     production:
-      "You meet someone for the first time. Introduce yourself.",
+      "How do you usually greet someone in the morning?",
 
-    person: "👋🧑🏻",
+    person: "🙋🏻",
 
-    prop: "✨"
+    prop: "🌅"
   },
 
   {
     id: "002",
-    count: "2/2",
 
-    concept: "Age",
+    day: "Waking Up",
 
-    listen: "I am 33 years old.",
+    scene: "Sleeping Well",
 
-    create: "I am ______ years old.",
+    question: "Did you sleep well?",
+
+    answer: "Yes, I did.",
 
     production:
-      "Someone asks your age. Tell them how old you are.",
+      "How do you ask someone about their sleep?",
 
-    person: "🧑🏻",
+    person: "😴",
 
-    prop: "🎂"
+    prop: "🛏️"
+  },
+
+  {
+    id: "003",
+
+    day: "Waking Up",
+
+    scene: "Feeling Sleepy",
+
+    question: "Are you still sleepy?",
+
+    answer: "A little.",
+
+    production:
+      "How do you tell someone that you're still sleepy?",
+
+    person: "🥱",
+
+    prop: "☀️"
+  },
+
+  {
+    id: "004",
+
+    day: "Waking Up",
+
+    scene: "Checking the Time",
+
+    question: "What time is it?",
+
+    answer: "It's seven o'clock.",
+
+    production:
+      "Ask someone what time it is.",
+
+    person: "⏰",
+
+    prop: "🕖"
+  },
+
+  {
+    id: "005",
+
+    day: "Waking Up",
+
+    scene: "Starting the Day",
+
+    question: "Are you ready?",
+
+    answer: "Let's go.",
+
+    production:
+      "How do you invite someone to start the day?",
+
+    person: "🚶🏻",
+
+    prop: "🚪"
   }
+
 ];
 
 // =========================
