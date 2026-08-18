@@ -186,11 +186,15 @@ const actionBtn = document.getElementById("actionBtn");
 const nextStepBtn = document.getElementById("nextStepBtn");
 
 const stageButtons = [
-  ...document.querySelectorAll(".stage-btn")
+  ...document.querySelectorAll(
+    ".stage"
+  )
 ];
 
 const progressDots = [
-  ...document.querySelectorAll(".stage-progress span")
+  ...document.querySelectorAll(
+    "#stepLine i"
+  )
 ];
 
 // =========================
