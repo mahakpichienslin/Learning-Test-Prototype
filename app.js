@@ -187,10 +187,6 @@ const playAnswerBtn =
 const stepLabel = document.getElementById("moment");
 
 const itemCount = document.getElementById("itemCount");
-
-const scenePerson = document.getElementById("scenePerson");
-const sceneProp = document.getElementById("sceneProp");
-
 const actionBtn = document.getElementById("actionBtn");
 const nextStepBtn = document.getElementById("nextStepBtn");
 
@@ -217,24 +213,18 @@ function renderItem() {
 
     sceneImage.src =
         item.image;
-}
 
-  itemCount.textContent =
-    `${currentItem + 1}/${items.length}`;
+    itemCount.textContent =
+        `${currentItem + 1}/${items.length}`;
 
-  scenePerson.textContent =
-    item.person;
+    questionText.textContent =
+        item.question;
 
-  sceneProp.textContent =
-    item.prop;
+    answerText.textContent =
+        item.answer;
 
-  questionText.textContent =
-    item.question;
+    renderStage();
 
-  answerText.textContent =
-    item.answer;
-
-  renderStage();
 }
 
 // =========================
@@ -308,25 +298,6 @@ else if (currentStage === 4) {
 
 }
 
-  function speakText(text) {
-
-  if (!("speechSynthesis" in window)) {
-    return;
-  }
-
-  window.speechSynthesis.cancel();
-
-  const speech =
-    new SpeechSynthesisUtterance(text);
-
-  speech.lang = "en-US";
-
-  speech.rate = 0.85;
-
-  speech.pitch = 1;
-
-  window.speechSynthesis.speak(speech);
-}
   playQuestionBtn.addEventListener(
   "click",
   () => {
@@ -483,6 +454,31 @@ actionBtn.addEventListener("click", () => {
   }
 
 });
+
+
+// =========================
+// SPEECH
+// =========================
+
+function speakText(text) {
+
+    if (!("speechSynthesis" in window)) {
+        return;
+    }
+
+    window.speechSynthesis.cancel();
+
+    const speech =
+        new SpeechSynthesisUtterance(text);
+
+    speech.lang = "en-US";
+
+    speech.rate = 0.85;
+
+    speech.pitch = 1;
+
+    window.speechSynthesis.speak(speech);
+}
 
 // =========================
 // FEEL
