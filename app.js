@@ -155,6 +155,11 @@ const items = [
 
 ];
 
+const sceneImage =
+    document.getElementById(
+        "sceneImage"
+    );
+
 // =========================
 // STATE
 // =========================
@@ -207,7 +212,12 @@ const progressDots = [
 
 function renderItem() {
 
-  const item = items[currentItem];
+    const item =
+        items[currentItem];
+
+    sceneImage.src =
+        item.image;
+}
 
   itemCount.textContent =
     `${currentItem + 1}/${items.length}`;
