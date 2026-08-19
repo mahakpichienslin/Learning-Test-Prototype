@@ -932,14 +932,13 @@ button {
 /* Round Action */
 
 .roundAction {
-    width: 56px;
-    height: 56px;
+    width: 160px;
 
-    font-size: 20px;
+    height: 48px;
 
     margin: 12px auto;
 
-    border-radius: 50%;
+    border-radius: 14px;
 
     border: 0;
 
@@ -947,13 +946,17 @@ button {
 
     color: #7547d8;
 
+    font-size: 18px;
+
+    font-weight: 700;
+
     position: relative;
 
     z-index: 4;
 
-  box-shadow:
-    0 8px 22px
-    rgba(28, 16, 74, 0.35);
+    box-shadow:
+        0 8px 22px
+        rgba(28, 16, 74, 0.35);
 }
 
 
