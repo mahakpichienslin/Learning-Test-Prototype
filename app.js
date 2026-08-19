@@ -66,6 +66,8 @@ const items = [
 
   {
     id: "001",
+    
+    image: "assets/items/item-001.png",
 
     day: "Waking Up",
 
@@ -77,14 +79,13 @@ const items = [
 
     production:
       "How do you usually greet someone in the morning?",
-
-    person: "🙋🏻",
-
-    prop: "🌅"
   },
 
   {
     id: "002",
+
+    image: "assets/items/item-002.png",
+
 
     day: "Waking Up",
 
@@ -96,14 +97,13 @@ const items = [
 
     production:
       "How do you ask someone about their sleep?",
-
-    person: "😴",
-
-    prop: "🛏️"
   },
 
   {
     id: "003",
+
+    image: "assets/items/item-003.png",
+
 
     day: "Waking Up",
 
@@ -115,14 +115,13 @@ const items = [
 
     production:
       "How do you tell someone that you're still sleepy?",
-
-    person: "🥱",
-
-    prop: "☀️"
   },
 
   {
     id: "004",
+    
+    image: "assets/items/item-004.png",
+
 
     day: "Waking Up",
 
@@ -134,14 +133,13 @@ const items = [
 
     production:
       "Ask someone what time it is.",
-
-    person: "⏰",
-
-    prop: "🕖"
   },
 
   {
     id: "005",
+
+    image: "assets/items/item-005.png",
+
 
     day: "Waking Up",
 
@@ -153,10 +151,6 @@ const items = [
 
     production:
       "How do you invite someone to start the day?",
-
-    person: "🚶🏻",
-
-    prop: "🚪"
   }
 
 ];
