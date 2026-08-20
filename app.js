@@ -280,11 +280,7 @@ else if (currentStage === 2) {
 
 else if (currentStage === 3) {
 
-  questionText.textContent =
-    item.question;
-
-  answerText.textContent =
-    "__________";
+  prepareUnlock();
 
 }
 
@@ -669,36 +665,119 @@ function handleSpeechResult(
 
   }
 
+else if (mode === "unlock") {
 
-  else if (mode === "unlock") {
+  const result =
+    checkUnlockAnswer(
+      transcript,
+      item.answer
+    );
+
+
+  if (result === "good") {
 
     stageHelp.textContent =
-      `You said: "${transcript}"`;
+      `You said: "${transcript}" — Nice!`;
 
     answerText.textContent =
       item.answer;
 
     actionBtn.textContent =
-      "✓ Answered";
+      "✓ Got it";
 
   }
 
 
-  else if (mode === "express") {
+  else if (result === "close") {
 
     stageHelp.textContent =
-      `You said: "${transcript}"`;
+      `You said: "${transcript}" — Almost there!`;
 
     answerText.textContent =
-      transcript;
+      item.answer;
 
     actionBtn.textContent =
-      "✓ You spoke!";
+      "✓ Keep going";
+
+  }
+
+
+  else {
+
+    stageHelp.textContent =
+      `You said: "${transcript}" — Let's hear it again.`;
+
+    answerText.textContent =
+      item.answer;
+
+    actionBtn.textContent =
+      "↻ Try again";
 
   }
 
 }
 
+// =========================
+// NORMALIZE SPEECH
+// =========================
+
+function normalizeText(text) {
+
+  return text
+    .toLowerCase()
+    .replace(/[.,!?']/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
+
+}
+
+// =========================
+// CHECK UNLOCK ANSWER
+// =========================
+
+function checkUnlockAnswer(
+  transcript,
+  expectedAnswer
+) {
+
+  const spoken =
+    normalizeText(transcript);
+
+  const expected =
+    normalizeText(expectedAnswer);
+
+
+  // ตรงทั้งหมด
+  if (spoken === expected) {
+    return "good";
+  }
+
+
+  // มีคำหลักตรงกันบางส่วน
+  const expectedWords =
+    expected.split(" ");
+
+  const spokenWords =
+    spoken.split(" ");
+
+  const matchedWords =
+    expectedWords.filter(word =>
+      spokenWords.includes(word)
+    );
+
+  const matchRate =
+    matchedWords.length /
+    expectedWords.length;
+
+
+  // ตรงประมาณครึ่งหนึ่งขึ้นไป
+  if (matchRate >= 0.5) {
+    return "close";
+  }
+
+
+  return "try";
+}
 
 // =========================
 // ECHO
@@ -737,6 +816,28 @@ function startRecall() {
 }
 
 // =========================
+// ENTER UNLOCK
+// =========================
+
+function prepareUnlock() {
+
+  const item =
+    items[currentItem];
+
+  questionText.textContent =
+    item.question;
+
+  answerText.textContent =
+    "__________";
+
+  stageHelp.textContent =
+    "Bring the answer back from memory.";
+
+  startThinkingTimer(10);
+
+}
+  
+// =========================
 // EXPRESS
 // =========================
 
@@ -766,28 +867,35 @@ function startThinkingTimer(seconds) {
 
   let timeLeft = seconds;
 
-  actionBtn.textContent = timeLeft;
+  actionBtn.textContent =
+    `🎙 ${timeLeft}`;
 
-  timerInterval = setInterval(() => {
 
-    timeLeft--;
+  timerInterval =
+    setInterval(() => {
 
-    actionBtn.textContent = timeLeft;
+      timeLeft--;
 
-    if (timeLeft <= 0) {
+      actionBtn.textContent =
+        `🎙 ${timeLeft}`;
 
-      clearInterval(timerInterval);
 
-      actionBtn.textContent = "🎙 Recall";
+      if (timeLeft <= 0) {
 
-      stageHelp.textContent =
-        "That's okay. Let's keep moving.";
+        clearInterval(
+          timerInterval
+        );
 
-    }
+        actionBtn.textContent =
+          "🎙 Speak";
 
-  }, 1000);
+        stageHelp.textContent =
+          "Ready when you are.";
+
+      }
+
+    }, 1000);
 }
-
 // =========================
 // INITIAL LOAD
 // =========================
