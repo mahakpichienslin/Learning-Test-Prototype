@@ -460,38 +460,33 @@ function speakText(text) {
 }
 
 
-// =========================
-// PLAY A / B
-// =========================
+// PLAY QUESTION
 
 playQuestionBtn.addEventListener(
   "click",
   () => {
 
-    const item =
-      items[currentItem];
+    const item = items[currentItem];
 
-    speakText(
-      item.question
-    );
+    speakText(item.question);
 
   }
 );
 
+
+// PLAY ANSWER
 
 playAnswerBtn.addEventListener(
   "click",
   () => {
 
-    const item =
-      items[currentItem];
+    const item = items[currentItem];
 
-    speakText(
-      item.answer
-    );
+    speakText(item.answer);
 
   }
 );
+
 
 // =========================
 // FEEL
