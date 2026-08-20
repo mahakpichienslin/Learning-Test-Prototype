@@ -293,7 +293,6 @@ else if (currentStage === 4) {
     "Say it your way.";
 
 }
-);
 
   // =========================
   // STAGE BUTTONS
@@ -730,97 +729,6 @@ function handleSpeechResult(mode, transcript) {
 
 }
 
-
-  // =========================
-  // ECHO
-  // =========================
-
-  if (mode === "echo") {
-
-    stageHelp.textContent =
-      `You said: "${transcript}"`;
-
-    actionBtn.textContent =
-      "✓ Nice!";
-
-  }
-
-
-  // =========================
-  // UNLOCK
-  // =========================
-
-  else if (mode === "unlock") {
-
-    const result =
-      checkUnlockAnswer(
-        transcript,
-        item.answer
-      );
-
-
-    if (result === "good") {
-
-      stageHelp.textContent =
-        `You said: "${transcript}" — Nice!`;
-
-      answerText.textContent =
-        item.answer;
-
-      actionBtn.textContent =
-        "✓ Got it";
-
-    }
-
-
-    else if (result === "close") {
-
-      stageHelp.textContent =
-        `You said: "${transcript}" — Almost there!`;
-
-      answerText.textContent =
-        item.answer;
-
-      actionBtn.textContent =
-        "✓ Keep going";
-
-    }
-
-
-    else {
-
-      stageHelp.textContent =
-        `You said: "${transcript}" — Let's hear it again.`;
-
-      answerText.textContent =
-        item.answer;
-
-      actionBtn.textContent =
-        "↻ Try again";
-
-    }
-
-  }
-
-
-  // =========================
-  // EXPRESS
-  // =========================
-
-  else if (mode === "express") {
-
-    stageHelp.textContent =
-      `You said: "${transcript}"`;
-
-    answerText.textContent =
-      transcript;
-
-    actionBtn.textContent =
-      "✓ You spoke!";
-
-  }
-
-}
 // =========================
 // NORMALIZE SPEECH
 // =========================
