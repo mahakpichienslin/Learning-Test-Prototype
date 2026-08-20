@@ -661,6 +661,80 @@ function handleSpeechResult(mode, transcript) {
 
   const item = items[currentItem];
 
+  if (mode === "echo") {
+
+    stageHelp.textContent =
+      `You said: "${transcript}"`;
+
+    actionBtn.textContent =
+      "✓ Nice!";
+
+  }
+
+  else if (mode === "unlock") {
+
+    const result =
+      checkUnlockAnswer(
+        transcript,
+        item.answer
+      );
+
+    if (result === "good") {
+
+      stageHelp.textContent =
+        `You said: "${transcript}" — Nice!`;
+
+      answerText.textContent =
+        item.answer;
+
+      actionBtn.textContent =
+        "✓ Got it";
+
+    }
+
+    else if (result === "close") {
+
+      stageHelp.textContent =
+        `You said: "${transcript}" — Almost there!`;
+
+      answerText.textContent =
+        item.answer;
+
+      actionBtn.textContent =
+        "✓ Keep going";
+
+    }
+
+    else {
+
+      stageHelp.textContent =
+        `You said: "${transcript}" — Let's hear it again.`;
+
+      answerText.textContent =
+        item.answer;
+
+      actionBtn.textContent =
+        "↻ Try again";
+
+    }
+
+  }
+
+  else if (mode === "express") {
+
+    stageHelp.textContent =
+      `You said: "${transcript}"`;
+
+    answerText.textContent =
+      transcript;
+
+    actionBtn.textContent =
+      "✓ You spoke!";
+
+  }
+
+}
+
 
   // =========================
   // ECHO
