@@ -66,6 +66,7 @@ const items = [
 
   {
     id: "001",
+    dayNumber: 1,
     
     image: "assets/items/item-001.png",
 
@@ -83,6 +84,7 @@ const items = [
 
   {
     id: "002",
+    dayNumber: 1,
 
     image: "assets/items/item-002.png",
 
@@ -101,6 +103,7 @@ const items = [
 
   {
     id: "003",
+    dayNumber: 1,
 
     image: "assets/items/item-003.png",
 
@@ -119,6 +122,7 @@ const items = [
 
   {
     id: "004",
+    dayNumber: 1,
     
     image: "assets/items/item-004.png",
 
@@ -137,6 +141,7 @@ const items = [
 
   {
     id: "005",
+    dayNumber: 1,
 
     image: "assets/items/item-005.png",
 
@@ -253,6 +258,17 @@ const actionBtn = document.getElementById("actionBtn");
 const nextStepBtn = document.getElementById("nextStepBtn");
 const dayLabel = document.getElementById("dayLabel");
 
+const homeDayLabel = document.getElementById("homeDayLabel");
+const homeDayTitle = document.getElementById("homeDayTitle");
+const homeProgressLabel = document.getElementById("homeProgressLabel");
+const continueJourneyBtn = document.getElementById("continueJourneyBtn");
+const continueJourneySub = document.getElementById("continueJourneySub");
+const reviewPreviousBtn = document.getElementById("reviewPreviousBtn");
+const reviewDayLabel = document.getElementById("reviewDayLabel");
+const reviewDayHint = document.getElementById("reviewDayHint");
+const openDawnFieldsBtn = document.getElementById("openDawnFieldsBtn");
+const dayCards = [...document.querySelectorAll(".dayCard")];
+
 const stageButtons = [
   ...document.querySelectorAll(
     ".stage"
@@ -271,17 +287,171 @@ const progressDots = [
 
 function goToDay(day) {
 
+    const firstIndex = items.findIndex(
+      item => item.dayNumber === day
+    );
+
+    // Day ยังไม่มีเนื้อหา
+    if (firstIndex === -1) {
+      return;
+    }
+
     currentDay = day;
-
-    currentItem = (day - 1) * 5;
-
+    currentItem = firstIndex;
     currentStage = 0;
 
     renderItem();
+    updateHome();
+    updateDayCards();
 
     showScreen("itemScreen");
-
 }
+
+
+function updateHome() {
+
+  const currentDayItems =
+    items.filter(item => item.dayNumber === currentDay);
+
+  const firstItem =
+    currentDayItems[0];
+
+  if (!firstItem) {
+    return;
+  }
+
+  homeDayLabel.textContent =
+    `Day ${currentDay}`;
+
+  homeDayTitle.textContent =
+    firstItem.day;
+
+  homeProgressLabel.textContent =
+    `${currentDay} / 180`;
+
+  continueJourneySub.textContent =
+    firstItem.day;
+
+  if (currentDay > 1) {
+
+    const previousItems =
+      items.filter(item => item.dayNumber === currentDay - 1);
+
+    if (previousItems.length) {
+
+      reviewPreviousBtn.disabled = false;
+
+      reviewDayLabel.textContent =
+        `Day ${currentDay - 1} · ${previousItems[0].day}`;
+
+      reviewDayHint.textContent =
+        "Tap to review";
+
+      return;
+    }
+  }
+
+  reviewPreviousBtn.disabled = true;
+  reviewDayLabel.textContent =
+    "No previous day yet";
+  reviewDayHint.textContent =
+    "Your reviews will appear here";
+}
+
+
+function updateDayCards() {
+
+  dayCards.forEach(card => {
+
+    const day =
+      Number(card.dataset.day);
+
+    const available =
+      items.some(item => item.dayNumber === day);
+
+    card.disabled =
+      !available;
+
+    card.classList.toggle(
+      "locked",
+      !available
+    );
+
+    card.classList.toggle(
+      "current",
+      day === currentDay
+    );
+
+    const state =
+      card.querySelector(".dayState");
+
+    if (!available) {
+      state.textContent = "🔒";
+    }
+
+    else if (day === currentDay) {
+      state.textContent = "▶";
+    }
+
+    else if (day < currentDay) {
+      state.textContent = "✓";
+    }
+
+    else {
+      state.textContent = "○";
+    }
+
+  });
+}
+
+
+continueJourneyBtn.addEventListener(
+  "click",
+  () => goToDay(currentDay)
+);
+
+
+reviewPreviousBtn.addEventListener(
+  "click",
+  () => {
+
+    if (currentDay > 1) {
+      goToDay(currentDay - 1);
+    }
+
+  }
+);
+
+
+openDawnFieldsBtn.addEventListener(
+  "click",
+  () => {
+
+    updateDayCards();
+
+    showScreen(
+      "realmDetailScreen"
+    );
+
+  }
+);
+
+
+dayCards.forEach(card => {
+
+  card.addEventListener(
+    "click",
+    () => {
+
+      const day =
+        Number(card.dataset.day);
+
+      goToDay(day);
+
+    }
+  );
+
+});
 
 // =========================
 // RENDER ITEM
@@ -292,14 +462,22 @@ function renderItem() {
     const item =
         items[currentItem];
 
+    currentDay = item.dayNumber || currentDay;
+
     sceneImage.src =
         item.image;
 
     dayLabel.textContent =
     `Day ${item.dayNumber} • ${item.day}`;
 
+    const dayItems =
+        items.filter(i => i.dayNumber === currentDay);
+
+    const itemPosition =
+        dayItems.findIndex(i => i.id === item.id) + 1;
+
     itemCount.textContent =
-        `${currentItem + 1}/${items.length}`;
+        `${itemPosition}/${dayItems.length}`;
 
     renderStage();
 
@@ -991,3 +1169,5 @@ function startThinkingTimer(seconds) {
 // =========================
 
 renderItem();
+updateHome();
+updateDayCards();
