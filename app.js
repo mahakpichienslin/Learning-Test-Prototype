@@ -293,27 +293,6 @@ else if (currentStage === 4) {
     "Say it your way.";
 
 }
-
-  playQuestionBtn.addEventListener(
-  "click",
-  () => {
-
-    const item = items[currentItem];
-
-    speakText(item.question);
-
-  }
-);
-
-playAnswerBtn.addEventListener(
-  "click",
-  () => {
-
-    const item = items[currentItem];
-
-    speakText(item.answer);
-
-  }
 );
 
   // =========================
@@ -464,23 +443,55 @@ actionBtn.addEventListener("click", () => {
 
 function speakText(text) {
 
-    if (!("speechSynthesis" in window)) {
-        return;
-    }
+  if (!("speechSynthesis" in window)) {
+    return;
+  }
 
-    window.speechSynthesis.cancel();
+  window.speechSynthesis.cancel();
 
-    const speech =
-        new SpeechSynthesisUtterance(text);
+  const speech =
+    new SpeechSynthesisUtterance(text);
 
-    speech.lang = "en-US";
+  speech.lang = "en-US";
+  speech.rate = 0.85;
+  speech.pitch = 1;
 
-    speech.rate = 0.85;
-
-    speech.pitch = 1;
-
-    window.speechSynthesis.speak(speech);
+  window.speechSynthesis.speak(speech);
 }
+
+
+// =========================
+// PLAY A / B
+// =========================
+
+playQuestionBtn.addEventListener(
+  "click",
+  () => {
+
+    const item =
+      items[currentItem];
+
+    speakText(
+      item.question
+    );
+
+  }
+);
+
+
+playAnswerBtn.addEventListener(
+  "click",
+  () => {
+
+    const item =
+      items[currentItem];
+
+    speakText(
+      item.answer
+    );
+
+  }
+);
 
 // =========================
 // FEEL
@@ -646,14 +657,14 @@ function startVoiceRecognition(mode) {
 // SPEECH RESULT
 // =========================
 
-function handleSpeechResult(
-  mode,
-  transcript
-) {
+function handleSpeechResult(mode, transcript) {
 
-  const item =
-    items[currentItem];
+  const item = items[currentItem];
 
+
+  // =========================
+  // ECHO
+  // =========================
 
   if (mode === "echo") {
 
@@ -665,58 +676,82 @@ function handleSpeechResult(
 
   }
 
-else if (mode === "unlock") {
 
-  const result =
-    checkUnlockAnswer(
-      transcript,
-      item.answer
-    );
+  // =========================
+  // UNLOCK
+  // =========================
+
+  else if (mode === "unlock") {
+
+    const result =
+      checkUnlockAnswer(
+        transcript,
+        item.answer
+      );
 
 
-  if (result === "good") {
+    if (result === "good") {
 
-    stageHelp.textContent =
-      `You said: "${transcript}" — Nice!`;
+      stageHelp.textContent =
+        `You said: "${transcript}" — Nice!`;
 
-    answerText.textContent =
-      item.answer;
+      answerText.textContent =
+        item.answer;
 
-    actionBtn.textContent =
-      "✓ Got it";
+      actionBtn.textContent =
+        "✓ Got it";
+
+    }
+
+
+    else if (result === "close") {
+
+      stageHelp.textContent =
+        `You said: "${transcript}" — Almost there!`;
+
+      answerText.textContent =
+        item.answer;
+
+      actionBtn.textContent =
+        "✓ Keep going";
+
+    }
+
+
+    else {
+
+      stageHelp.textContent =
+        `You said: "${transcript}" — Let's hear it again.`;
+
+      answerText.textContent =
+        item.answer;
+
+      actionBtn.textContent =
+        "↻ Try again";
+
+    }
 
   }
 
 
-  else if (result === "close") {
+  // =========================
+  // EXPRESS
+  // =========================
+
+  else if (mode === "express") {
 
     stageHelp.textContent =
-      `You said: "${transcript}" — Almost there!`;
+      `You said: "${transcript}"`;
 
     answerText.textContent =
-      item.answer;
+      transcript;
 
     actionBtn.textContent =
-      "✓ Keep going";
-
-  }
-
-
-  else {
-
-    stageHelp.textContent =
-      `You said: "${transcript}" — Let's hear it again.`;
-
-    answerText.textContent =
-      item.answer;
-
-    actionBtn.textContent =
-      "↻ Try again";
+      "✓ You spoke!";
 
   }
 
 }
-
 // =========================
 // NORMALIZE SPEECH
 // =========================
