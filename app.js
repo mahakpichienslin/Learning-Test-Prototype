@@ -156,6 +156,7 @@ const items = [
 {
   id: "006",
   image: "assets/items/item-006.png",
+  dayNumber: 2,
   day: "Getting Ready",
   scene: "Looking for Something",
   question: "Where are my keys?",
@@ -167,6 +168,7 @@ const items = [
 {
   id: "007",
   image: "assets/items/item-007.png",
+  dayNumber: 2,
   day: "Getting Ready",
   scene: "Getting Dressed",
   question: "Are you ready yet?",
@@ -178,6 +180,7 @@ const items = [
 {
   id: "008",
   image: "assets/items/item-008.png",
+  dayNumber: 2,
   day: "Getting Ready",
   scene: "Choosing Clothes",
   question: "Which shirt should I wear?",
@@ -189,6 +192,7 @@ const items = [
 {
   id: "009",
   image: "assets/items/item-009.png",
+  dayNumber: 2,
   day: "Getting Ready",
   scene: "Running Late",
   question: "Are you running late?",
@@ -200,6 +204,7 @@ const items = [
 {
   id: "010",
   image: "assets/items/item-010.png",
+  dayNumber: 2,
   day: "Getting Ready",
   scene: "Leaving Home",
   question: "Shall we go?",
@@ -218,7 +223,10 @@ const sceneImage =
 // STATE
 // =========================
 
+let currentDay = 1;
+
 let currentItem = 0;
+
 let currentStage = 0;
 
 // =========================
@@ -258,6 +266,24 @@ const progressDots = [
 ];
 
 // =========================
+// DAY NAVIGATION
+// =========================
+
+function goToDay(day) {
+
+    currentDay = day;
+
+    currentItem = (day - 1) * 5;
+
+    currentStage = 0;
+
+    renderItem();
+
+    showScreen("itemScreen");
+
+}
+
+// =========================
 // RENDER ITEM
 // =========================
 
@@ -270,7 +296,7 @@ function renderItem() {
         item.image;
 
     dayLabel.textContent =
-        item.day;
+    `Day ${item.dayNumber} • ${item.day}`;
 
     itemCount.textContent =
         `${currentItem + 1}/${items.length}`;
