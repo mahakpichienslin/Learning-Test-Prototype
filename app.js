@@ -433,25 +433,31 @@ actionBtn.addEventListener("click", () => {
   }
 
   // ECHO
-  else if (currentStage === 2) {
+  if (currentStage === 2) {
 
-    simulateSpeaking();
+  startVoiceRecognition(
+    "echo"
+  );
 
-  }
+}
 
   // UNLOCK
   else if (currentStage === 3) {
 
-    startRecall();
+  startVoiceRecognition(
+    "unlock"
+  );
 
-  }
+}
 
   // EXPRESS
   else if (currentStage === 4) {
 
-    startCreate();
+  startVoiceRecognition(
+    "express"
+  );
 
-  }
+}
 
 });
 
@@ -550,6 +556,150 @@ function speakDialogue(
     speechA
   );
 }
+
+// =========================
+// SPEECH RECOGNITION
+// =========================
+
+const SpeechRecognition =
+  window.SpeechRecognition ||
+  window.webkitSpeechRecognition;
+
+let recognition = null;
+
+if (SpeechRecognition) {
+
+  recognition = new SpeechRecognition();
+
+  recognition.lang = "en-US";
+
+  recognition.interimResults = false;
+
+  recognition.continuous = false;
+}
+
+
+// =========================
+// START LISTENING
+// =========================
+
+function startVoiceRecognition(mode) {
+
+  if (!recognition) {
+
+    stageHelp.textContent =
+      "Speech recognition is not supported in this browser.";
+
+    return;
+  }
+
+
+  recognition.start();
+
+  actionBtn.textContent =
+    "🎙 Listening...";
+
+  stageHelp.textContent =
+    "Speak now. Don't worry about being perfect.";
+
+
+  recognition.onresult = (event) => {
+
+    const transcript =
+      event.results[0][0].transcript;
+
+    console.log(
+      "User said:",
+      transcript
+    );
+
+
+    handleSpeechResult(
+      mode,
+      transcript
+    );
+
+  };
+
+
+  recognition.onerror = () => {
+
+    actionBtn.textContent =
+      "🎙 Try again";
+
+    stageHelp.textContent =
+      "I didn't catch that. Try once more.";
+
+  };
+
+
+  recognition.onend = () => {
+
+    if (actionBtn.textContent === "🎙 Listening...") {
+
+      actionBtn.textContent =
+        "🎙 Speak";
+
+    }
+
+  };
+
+}
+
+// =========================
+// SPEECH RESULT
+// =========================
+
+function handleSpeechResult(
+  mode,
+  transcript
+) {
+
+  const item =
+    items[currentItem];
+
+
+  if (mode === "echo") {
+
+    stageHelp.textContent =
+      `You said: "${transcript}"`;
+
+    actionBtn.textContent =
+      "✓ Nice!";
+
+  }
+
+
+  else if (mode === "unlock") {
+
+    stageHelp.textContent =
+      `You said: "${transcript}"`;
+
+    answerText.textContent =
+      item.answer;
+
+    actionBtn.textContent =
+      "✓ Answered";
+
+  }
+
+
+  else if (mode === "express") {
+
+    stageHelp.textContent =
+      `You said: "${transcript}"`;
+
+    answerText.textContent =
+      transcript;
+
+    actionBtn.textContent =
+      "✓ You spoke!";
+
+  }
+
+}
+
+
 // =========================
 // ECHO
 // =========================
