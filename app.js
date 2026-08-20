@@ -243,6 +243,7 @@ const stepLabel = document.getElementById("moment");
 const itemCount = document.getElementById("itemCount");
 const actionBtn = document.getElementById("actionBtn");
 const nextStepBtn = document.getElementById("nextStepBtn");
+const dayLabel = document.getElementById("dayLabel");
 
 const stageButtons = [
   ...document.querySelectorAll(
@@ -268,14 +269,11 @@ function renderItem() {
     sceneImage.src =
         item.image;
 
+    dayLabel.textContent =
+        item.day;
+
     itemCount.textContent =
         `${currentItem + 1}/${items.length}`;
-
-    questionText.textContent =
-        item.question;
-
-    answerText.textContent =
-        item.answer;
 
     renderStage();
 
