@@ -87,11 +87,12 @@
 
           <div class="dayRow">
 
-            <strong>
-              Day 1
-            </strong>
+            <div>
+              <strong id="homeDayLabel">Day 1</strong>
+              <small id="homeDayTitle">Waking Up</small>
+            </div>
 
-            <span>
+            <span id="homeProgressLabel">
               1 / 180
             </span>
 
@@ -107,7 +108,8 @@
 
           <button
             class="primary"
-            data-go="mapScreen"
+            id="continueJourneyBtn"
+            type="button"
           >
 
             <span>
@@ -118,8 +120,8 @@
 
               Continue Journey
 
-              <small>
-                Go to Realm Map
+              <small id="continueJourneySub">
+                Continue today’s lesson
               </small>
 
             </b>
@@ -135,7 +137,8 @@
 
         <button
           class="reviewCard"
-          data-go="itemScreen"
+          id="reviewPreviousBtn"
+          type="button"
         >
 
           <span class="cards">
@@ -148,12 +151,12 @@
               Items in Review
             </b>
 
-            <strong>
-              2 items
+            <strong id="reviewDayLabel">
+              Day 1 · Waking Up
             </strong>
 
-            <small>
-              Ready to practice
+            <small id="reviewDayHint">
+              Review a previous day
             </small>
 
           </span>
@@ -341,44 +344,27 @@
 
 
           <button
-    class="realm realm-1"
-    data-go="itemScreen"
->
+            class="realm realm-1"
+            id="openDawnFieldsBtn"
+            type="button"
+          >
 
-    <img
-        src="assets/map/dawn-fields.png"
-        alt="Dawn Fields"
-    >
+            <img
+              src="assets/map/dawn-fields.png"
+              alt="Dawn Fields"
+            >
 
-    <div class="realm-label">
+            <div class="realm-label">
 
-        <h3>Dawn Fields</h3>
+              <h3>Dawn Fields</h3>
 
-        <p>
-            Learn to speak about yourself.
-        </p>
+              <p>
+                Learn to speak about yourself.
+              </p>
 
-        <div class="daySelector">
+            </div>
 
-            <button type="button" onclick="goToDay(1)">1</button>
-
-            <button type="button" onclick="goToDay(2)">2</button>
-
-            <button type="button" onclick="goToDay(3)">3</button>
-
-            <button type="button" onclick="goToDay(4)">4</button>
-
-            <button type="button" onclick="goToDay(5)">5</button>
-
-            <button type="button" onclick="goToDay(6)">6</button>
-
-            <button type="button" onclick="goToDay(7)">7</button>
-
-        </div>
-
-    </div>
-
-</button>
+          </button>
         </div>
 
       </div>
@@ -440,6 +426,136 @@
 
     </section>
 
+
+
+
+    <!-- =========================
+         REALM DETAIL
+    ========================= -->
+
+    <section
+      class="screen realmDetailPage"
+      id="realmDetailScreen"
+    >
+
+      <div class="realmDetailHero">
+
+        <button
+          class="back realmDetailBack"
+          data-go="mapScreen"
+          type="button"
+        >
+          ←
+        </button>
+
+        <div>
+          <small>Realm 1</small>
+          <h2>Dawn Fields</h2>
+          <p>Me &amp; My World</p>
+        </div>
+
+      </div>
+
+      <div class="realmDetailContent">
+
+        <p class="realmDetailIntro">
+          Choose a day to continue or revisit a moment you’ve already learned.
+        </p>
+
+        <div class="dayList" id="dayList">
+
+          <button class="dayCard" type="button" data-day="1">
+            <span class="dayNumber">1</span>
+            <span>
+              <b>Waking Up</b>
+              <small>Items 001–005</small>
+            </span>
+            <span class="dayState">✓</span>
+          </button>
+
+          <button class="dayCard" type="button" data-day="2">
+            <span class="dayNumber">2</span>
+            <span>
+              <b>Getting Ready</b>
+              <small>Items 006–010</small>
+            </span>
+            <span class="dayState">▶</span>
+          </button>
+
+          <button class="dayCard" type="button" data-day="3">
+            <span class="dayNumber">3</span>
+            <span>
+              <b>Breakfast &amp; Coffee</b>
+              <small>Items 011–015</small>
+            </span>
+            <span class="dayState">🔒</span>
+          </button>
+
+          <button class="dayCard" type="button" data-day="4">
+            <span class="dayNumber">4</span>
+            <span>
+              <b>Work &amp; Daily Tasks</b>
+              <small>Items 016–020</small>
+            </span>
+            <span class="dayState">🔒</span>
+          </button>
+
+          <button class="dayCard" type="button" data-day="5">
+            <span class="dayNumber">5</span>
+            <span>
+              <b>Food &amp; Eating</b>
+              <small>Items 021–025</small>
+            </span>
+            <span class="dayState">🔒</span>
+          </button>
+
+          <button class="dayCard" type="button" data-day="6">
+            <span class="dayNumber">6</span>
+            <span>
+              <b>Going Out</b>
+              <small>Items 026–030</small>
+            </span>
+            <span class="dayState">🔒</span>
+          </button>
+
+          <button class="dayCard" type="button" data-day="7">
+            <span class="dayNumber">7</span>
+            <span>
+              <b>Small Talk</b>
+              <small>Items 031–035</small>
+            </span>
+            <span class="dayState">🔒</span>
+          </button>
+
+        </div>
+
+      </div>
+
+      <nav class="nav">
+
+        <button data-go="homeScreen">
+          ⌂
+          <small>Home</small>
+        </button>
+
+        <button class="active" data-go="mapScreen">
+          🗺
+          <small>Map</small>
+        </button>
+
+        <button data-go="itemScreen">
+          💼
+          <small>Journey</small>
+        </button>
+
+        <button>
+          ♙
+          <small>Avatar</small>
+        </button>
+
+      </nav>
+
+    </section>
 
 
     <!-- =========================
