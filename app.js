@@ -151,8 +151,62 @@ const items = [
 
     production:
       "How do you invite someone to start the day?",
-  }
+  },
+  
+{
+  id: "006",
+  image: "assets/items/item-006.png",
+  day: "Getting Ready",
+  scene: "Looking for Something",
+  question: "Where are my keys?",
+  answer: "They're on the table.",
+  production:
+    "Ask someone where your keys are."
+},
 
+{
+  id: "007",
+  image: "assets/items/item-007.png",
+  day: "Getting Ready",
+  scene: "Getting Dressed",
+  question: "Are you ready yet?",
+  answer: "Almost.",
+  production:
+    "Tell someone you're almost ready."
+},
+
+{
+  id: "008",
+  image: "assets/items/item-008.png",
+  day: "Getting Ready",
+  scene: "Choosing Clothes",
+  question: "Which shirt should I wear?",
+  answer: "The blue one looks nice.",
+  production:
+    "Ask someone which shirt you should wear."
+},
+
+{
+  id: "009",
+  image: "assets/items/item-009.png",
+  day: "Getting Ready",
+  scene: "Running Late",
+  question: "Are you running late?",
+  answer: "Just a little.",
+  production:
+    "Tell someone you're running a little late."
+},
+
+{
+  id: "010",
+  image: "assets/items/item-010.png",
+  day: "Getting Ready",
+  scene: "Leaving Home",
+  question: "Shall we go?",
+  answer: "Let's go.",
+  production:
+    "Invite someone to leave with you."
+}
 ];
 
 const sceneImage =
