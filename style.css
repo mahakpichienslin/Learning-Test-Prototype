@@ -1414,3 +1414,36 @@ button {
 
     display: block;
 }
+.daySelector {
+
+    display: flex;
+
+    gap: 6px;
+
+    margin-top: 10px;
+
+}
+
+.daySelector button {
+
+    width: 32px;
+
+    height: 32px;
+
+    border: 0;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.9);
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+}
+
+.daySelector button:hover {
+
+    transform: scale(1.1);
+
+}
