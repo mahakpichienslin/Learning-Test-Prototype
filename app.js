@@ -216,6 +216,477 @@ const items = [
   answer: "Let's go.",
   production:
     "Invite someone to leave with you."
+},
+
+  {
+    id: "011",
+
+    dayNumber: 3,
+
+    image: "assets/items/item-011.png",
+
+    day: "Breakfast & Coffee",
+
+    scene: "Tea or Coffee?",
+
+    question: "Would you like tea or coffee?",
+
+    answer: "Coffee, please.",
+
+    production:
+        "What would you like to drink?"
+},
+
+{
+    id: "012",
+
+    dayNumber: 3,
+
+    image: "assets/items/item-012.png",
+
+    day: "Breakfast & Coffee",
+
+    scene: "Choosing Breakfast",
+
+    question: "What would you like for breakfast?",
+
+    answer: "I'll have eggs and toast.",
+
+    production:
+        "What do you usually eat for breakfast?"
+},
+
+{
+    id: "013",
+
+    dayNumber: 3,
+
+    image: "assets/items/item-013.png",
+
+    day: "Breakfast & Coffee",
+
+    scene: "Enjoying the Food",
+
+    question: "How is your breakfast?",
+
+    answer: "It's delicious.",
+
+    production:
+        "Describe your breakfast."
+},
+
+{
+    id: "014",
+
+    dayNumber: 3,
+
+    image: "assets/items/item-014.png",
+
+    day: "Breakfast & Coffee",
+
+    scene: "Having More",
+
+    question: "Would you like some more?",
+
+    answer: "Yes, please.",
+
+    production:
+        "How do you ask for more food?"
+},
+
+{
+    id: "015",
+
+    dayNumber: 3,
+
+    image: "assets/items/item-015.png",
+
+    day: "Breakfast & Coffee",
+
+    scene: "Finishing Breakfast",
+
+    question: "Are you full?",
+
+    answer: "Yes, I'm full.",
+
+    production:
+        "How do you say that you've eaten enough?"
+},
+  {
+    id: "016",
+
+    dayNumber: 4,
+
+    image: "assets/items/item-016.png",
+
+    day: "Work & Daily Tasks",
+
+    scene: "Starting Work",
+
+    question: "Are you busy today?",
+
+    answer: "Yes, I have a lot to do.",
+
+    production:
+        "Describe your workload today."
+},
+
+{
+    id: "017",
+
+    dayNumber: 4,
+
+    image: "assets/items/item-017.png",
+
+    day: "Work & Daily Tasks",
+
+    scene: "Today's Task",
+
+    question: "What are you working on?",
+
+    answer: "I'm finishing a report.",
+
+    production:
+        "Talk about something you're working on."
+},
+
+{
+    id: "018",
+
+    dayNumber: 4,
+
+    image: "assets/items/item-018.png",
+
+    day: "Work & Daily Tasks",
+
+    scene: "Asking for Help",
+
+    question: "Can you help me?",
+
+    answer: "Of course.",
+
+    production:
+        "Ask someone for help."
+},
+
+{
+    id: "019",
+
+    dayNumber: 4,
+
+    image: "assets/items/item-019.png",
+
+    day: "Work & Daily Tasks",
+
+    scene: "Almost Finished",
+
+    question: "Are you done yet?",
+
+    answer: "I'm almost finished.",
+
+    production:
+        "Tell someone you're almost done."
+},
+
+{
+    id: "020",
+
+    dayNumber: 4,
+
+    image: "assets/items/item-020.png",
+
+    day: "Work & Daily Tasks",
+
+    scene: "Good Job",
+
+    question: "Great work today.",
+
+    answer: "Thank you.",
+
+    production:
+        "How do you compliment someone at work?"
+},
+  {
+    id: "021",
+
+    dayNumber: 5,
+
+    image: "assets/items/item-021.png",
+
+    day: "Food & Eating",
+
+    scene: "Feeling Hungry",
+
+    question: "Are you hungry?",
+
+    answer: "Yes, I'm starving.",
+
+    production:
+        "How do you say that you're very hungry?"
+},
+
+{
+    id: "022",
+
+    dayNumber: 5,
+
+    image: "assets/items/item-022.png",
+
+    day: "Food & Eating",
+
+    scene: "Choosing a Restaurant",
+
+    question: "What should we eat?",
+
+    answer: "How about some noodles?",
+
+    production:
+        "Suggest a meal to someone."
+},
+
+{
+    id: "023",
+
+    dayNumber: 5,
+
+    image: "assets/items/item-023.png",
+
+    day: "Food & Eating",
+
+    scene: "Ordering Food",
+
+    question: "What would you like to order?",
+
+    answer: "I'd like fried rice, please.",
+
+    production:
+        "Order your favorite food."
+},
+
+{
+    id: "024",
+
+    dayNumber: 5,
+
+    image: "assets/items/item-024.png",
+
+    day: "Food & Eating",
+
+    scene: "Enjoying the Meal",
+
+    question: "How does it taste?",
+
+    answer: "It's really good.",
+
+    production:
+        "Describe the taste of your food."
+},
+
+{
+    id: "025",
+
+    dayNumber: 5,
+
+    image: "assets/items/item-025.png",
+
+    day: "Food & Eating",
+
+    scene: "Eating Together",
+
+    question: "Would you like to eat together?",
+
+    answer: "Sure, I'd love to.",
+
+    production:
+        "Invite someone to eat with you."
+},
+  {
+    id: "026",
+
+    dayNumber: 6,
+
+    image: "assets/items/item-026.png",
+
+    day: "Going Out",
+
+    scene: "Leaving Home",
+
+    question: "Where are you going?",
+
+    answer: "I'm going to the supermarket.",
+
+    production:
+        "Tell someone where you're going."
+},
+
+{
+    id: "027",
+
+    dayNumber: 6,
+
+    image: "assets/items/item-027.png",
+
+    day: "Going Out",
+
+    scene: "Choosing Transportation",
+
+    question: "How are you getting there?",
+
+    answer: "I'm taking the train.",
+
+    production:
+        "Explain how you're traveling."
+},
+
+{
+    id: "028",
+
+    dayNumber: 6,
+
+    image: "assets/items/item-028.png",
+
+    day: "Going Out",
+
+    scene: "Waiting for Someone",
+
+    question: "Can you wait for me?",
+
+    answer: "Sure. I'll wait here.",
+
+    production:
+        "Ask someone to wait for you."
+},
+
+{
+    id: "029",
+
+    dayNumber: 6,
+
+    image: "assets/items/item-029.png",
+
+    day: "Going Out",
+
+    scene: "Going Together",
+
+    question: "Do you want to go together?",
+
+    answer: "Yes. Let's go together.",
+
+    production:
+        "Invite someone to go with you."
+},
+
+{
+    id: "030",
+
+    dayNumber: 6,
+
+    image: "assets/items/item-030.png",
+
+    day: "Going Out",
+
+    scene: "Saying Goodbye",
+
+    question: "See you later.",
+
+    answer: "See you.",
+
+    production:
+        "How do you say goodbye before leaving?"
+},
+  {
+    id: "031",
+
+    dayNumber: 7,
+
+    image: "assets/items/item-031.png",
+
+    day: "Small Talk",
+
+    scene: "Talking About Your Day",
+
+    question: "How was your day?",
+
+    answer: "It was pretty good.",
+
+    production:
+        "Describe your day."
+},
+
+{
+    id: "032",
+
+    dayNumber: 7,
+
+    image: "assets/items/item-032.png",
+
+    day: "Small Talk",
+
+    scene: "Today's Activities",
+
+    question: "What did you do today?",
+
+    answer: "I went to work and met some friends.",
+
+    production:
+        "Talk about what you did today."
+},
+
+{
+    id: "033",
+
+    dayNumber: 7,
+
+    image: "assets/items/item-033.png",
+
+    day: "Small Talk",
+
+    scene: "Showing Interest",
+
+    question: "Really?",
+
+    answer: "Yes. It was amazing.",
+
+    production:
+        "React to an interesting story."
+},
+
+{
+    id: "034",
+
+    dayNumber: 7,
+
+    image: "assets/items/item-034.png",
+
+    day: "Small Talk",
+
+    scene: "Talking About Hobbies",
+
+    question: "What do you like to do for fun?",
+
+    answer: "I enjoy playing games.",
+
+    production:
+        "Talk about one of your hobbies."
+},
+
+{
+    id: "035",
+
+    dayNumber: 7,
+
+    image: "assets/items/item-035.png",
+
+    day: "Small Talk",
+
+    scene: "Saying Goodbye",
+
+    question: "See you tomorrow.",
+
+    answer: "See you tomorrow.",
+
+    production:
+        "Say goodbye and make plans to meet again."
 }
 ];
 
