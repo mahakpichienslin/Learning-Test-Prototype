@@ -139,30 +139,6 @@ button {
 }
 
 
-/* Status */
-
-.stats {
-  display: flex;
-  gap: 8px;
-}
-
-.stats span,
-.stats button {
-  border: 0;
-
-  border-radius: 12px;
-
-  background:
-    rgba(39, 108, 192, 0.53);
-
-  color: #ffffff;
-
-  padding: 10px 12px;
-
-  font-weight: 800;
-}
-
-
 /* Hero Text */
 
 .heroText {
