@@ -9,8 +9,19 @@
 html,
 body {
   margin: 0;
-  min-height: 100%;
-  font-family: Inter, ui-rounded, "SF Pro Rounded", system-ui, sans-serif;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+
+  font-family:
+    Inter,
+    ui-rounded,
+    "SF Pro Rounded",
+    system-ui,
+    sans-serif;
+
   background: #ececf4;
   color: #2d2442;
 }
@@ -22,18 +33,32 @@ button {
 .app {
   width: 100%;
   max-width: 430px;
-  min-height: 100vh;
+
+  height: 100dvh;
+  min-height: 100dvh;
+
   margin: auto;
+
   background: #ffffff;
+
   position: relative;
+
   overflow: hidden;
 }
 
 .screen {
   display: none;
-  min-height: 100vh;
+
+  width: 100%;
+
+  height: 100dvh;
+  min-height: 0;
+
   position: relative;
-  padding-bottom: 92px;
+
+  overflow: hidden;
+
+  padding-bottom: 0;
 }
 
 .screen.active {
