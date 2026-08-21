@@ -1517,6 +1517,20 @@ button {
   display: flex;
   flex-direction: column;
   gap: 10px;
+
+  max-height: 55dvh;
+  overflow-y: auto;
+
+  /* Firefox */
+  scrollbar-width: none;
+
+  /* กันการเด้งแนวนอน */
+  overflow-x: hidden;
+}
+
+/* Chrome / Safari / Edge */
+.dayList::-webkit-scrollbar {
+  display: none;
 }
 
 .dayCard {
