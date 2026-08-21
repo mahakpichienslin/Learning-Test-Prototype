@@ -1150,46 +1150,6 @@ button {
     rgba(255, 240, 77, 0.15);
 }
 
-
-/* =========================
-   COURAGE MESSAGE
-========================= */
-
-.courage {
-  margin-top: 14px;
-
-  padding:
-    13px 16px;
-
-  border-radius: 18px;
-
-  background:
-    rgba(255, 255, 255, 0.07);
-
-  border:
-    1px solid
-    rgba(255, 255, 255, 0.13);
-
-  display: flex;
-
-  align-items: center;
-
-  gap: 12px;
-}
-
-.courage span {
-  font-size: 28px;
-}
-
-.courage p {
-  margin: 0;
-
-  line-height: 1.4;
-
-  font-size: 13px;
-}
-
-
 /* Continue */
 
 .continue {
