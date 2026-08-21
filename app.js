@@ -27,34 +27,37 @@ goButtons.forEach((button) => {
 // =========================
 
 const stages = [
+
   {
     title: "Scene",
+    help: "Look at the moment.",
     button: "See the moment"
   },
 
   {
     title: "Feel",
-    
+    help: "Listen and feel the meaning.",
     button: "▶ Play"
   },
 
   {
     title: "Echo",
-    
+    help: "Say it aloud.",
     button: "🎙 Speak"
   },
 
   {
     title: "Unlock",
-  
+    help: "Bring the words back from memory.",
     button: "🎙 Recall"
   },
 
   {
     title: "Express",
-   
+    help: "Say it your way.",
     button: "🎙 Create"
   }
+
 ];
 
 // =========================
