@@ -500,16 +500,6 @@ button {
   line-height: 1.4;
 }
 
-.heart {
-  background: rgba(255, 255, 255, 0.95);
-  color: #483c58;
-
-  padding: 11px;
-  border-radius: 12px;
-
-  font-weight: 900;
-}
-
 /* =========================
    REALMS CONTAINER
 ========================= */
