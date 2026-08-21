@@ -769,66 +769,6 @@ button {
 }
 
 
-/* Progress */
-
-.stepLine {
-  margin:
-    14px 20px 18px;
-
-  display: grid;
-
-  grid-template-columns:
-    repeat(5, 1fr);
-
-  gap: 12px;
-
-  position: relative;
-}
-
-.stepLine::before {
-  content: "";
-
-  position: absolute;
-
-  height: 4px;
-
-  left: 0;
-
-  right: 0;
-
-  top: 7px;
-
-  background:
-    rgba(255, 255, 255, 0.18);
-}
-
-.stepLine i {
-  width: 18px;
-
-  height: 18px;
-
-  border-radius: 50%;
-
-  background: #9673d1;
-
-  margin: auto;
-
-  position: relative;
-
-  z-index: 1;
-}
-
-.stepLine .on {
-  background: #ffd426;
-
-  border:
-    3px solid #ffffff;
-
-  box-shadow:
-    0 0 0 2px #ffd426;
-}
-
-
 /* Lesson */
 
 .lesson {
